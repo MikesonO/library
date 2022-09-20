@@ -3,7 +3,7 @@
 
 
 /* COLOR VARIABLES */
-:root{
+:root {
   --color1: #FFFFFF;
   --color2: #E8E8E8;
   --color3: #F05454;
@@ -11,62 +11,86 @@
 }
 
 /* ELEMENT SELECTORS */
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body{
+input[type=number]::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+body {
   font-family: 'Reem Kufi Fun', sans-serif;
 }
 
 /* CLASS SELECTORS */
-.container{
+.container {
   display: grid;
   grid-template-columns: 1fr 4fr;
   height: 100vh;
 }
 
-.side-container{
+.side-container {
   background-color: var(--color3);
   color: var(--color2);
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  padding-top: 2rem;
+  padding: 2rem 1rem;
 }
 
-.form-container{
+.form-container {
   display: flex;
 }
 
 
-.title{
-  font-size: 2rem;
+.title {
+  font-size: 1.5rem;
   letter-spacing: 6.5px;
 }
 
-.user-input{
+.user-input {
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 2rem;
-  position: relative;
   width: 100%;
 
+}
+
+.title-input,
+.author-input,
+.pages-input{
+  display:flex;
+  flex-direction: column;
+ 
 }
 
 .title-input label,
 .author-input label,
 .pages-input label{
-  position: absolute;
-  left: 1rem;
-
+  margin-left: 5px;;
 }
 
-.library-container{
+
+.title-input input,
+.author-input input,
+.pages-input input{
+  width:90%;
+  font-size: 1.25rem;
+  background-color: var(--color2);
+  color: var(--color4);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding:5px;
+  caret-color: var(--color3);
+}
+
+.library-container {
   background-color: var(--color2);
 
 }

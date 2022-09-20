@@ -21,4 +21,11 @@ Book.prototype.addBookToLibrary = function(){
   add.addEventListener("click", ()=>{
     const book = new Book(`${bookTitle.value}`,`${bookAuthor.value}`,`${bookPages.value}`);
     book.addBookToLibrary()
+    reset();
   });
+
+  const reset = ()=>{
+    bookTitle.value = "";
+    bookAuthor.value = "";
+    bookPages.value = "";
+  }
