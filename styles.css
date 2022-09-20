@@ -1,0 +1,32 @@
+/* COLOR VARIABLES */
+:root{
+  --color1: #FFFFFF;
+  --color2: #E8E8E8;
+  --color3: #F05454;
+  --color4: #222831;
+}
+
+/* ELEMENT SELECTORS */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+/* CLASS SELECTORS */
+.container{
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  height: 100vh;
+}
+
+.form-container{
+  background-color: var(--color3);
+  color: var(--color4);
+}
+
+.library-container{
+  background-color: var(--color2);
+
+}
