@@ -28,9 +28,26 @@ body{
   height: 100vh;
 }
 
-.form-container{
+.side-container{
   background-color: var(--color3);
-  color: var(--color4);
+  color: var(--color2);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
+.form-container{
+  display: flex;
+}
+
+.form-container > label{
+  margin-right: 1rem;
+}
+.title{
+  font-size: 2.5rem;
+  letter-spacing: 6.5px;
 }
 
 .library-container{
