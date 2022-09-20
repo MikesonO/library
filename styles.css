@@ -42,12 +42,28 @@ body{
   display: flex;
 }
 
-.form-container > label{
-  margin-right: 1rem;
-}
+
 .title{
-  font-size: 2.5rem;
+  font-size: 2rem;
   letter-spacing: 6.5px;
+}
+
+.user-input{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  width: 100%;
+
+}
+
+.title-input label,
+.author-input label,
+.pages-input label{
+  position: absolute;
+  left: 1rem;
+
 }
 
 .library-container{
