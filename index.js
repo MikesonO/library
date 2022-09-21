@@ -18,14 +18,14 @@ function Book(title, author, pages) {
     const book = new Book(`${bookTitle.value}`,`${bookAuthor.value}`,`${bookPages.value}`);
     myLibrary.push(book);
     updateBooks();
-    for (let i = 0; i < myLibrary.length; i++) {
-      createCard(myLibrary[i]);
-    }
     reset();
   });
 
   function updateBooks(){
     library.querySelectorAll('div').forEach(n => n.remove());
+    console.log(library);
+    for (let i = 0; i < myLibrary.length; i++) {
+      createCard(myLibrary[i]);}
   }
   
 
@@ -55,6 +55,8 @@ function Book(title, author, pages) {
 
     deleteBtn.addEventListener("click", () => {
       myLibrary.splice(myLibrary.indexOf(item), 1);
+      console.log(myLibrary);
+      console.log(myLibrary.length);
       updateBooks();
     });
   }
