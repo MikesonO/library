@@ -5,9 +5,9 @@
 /* COLOR VARIABLES */
 :root {
   --color1: #FFFFFF;
-  --color2: #E8E8E8;
-  --color3: #F05454;
-  --color4: #222831;
+  --color2: #E7F6F2;
+  --color3: #395B64;
+  --color4: #2C3333;
 }
 
 /* ELEMENT SELECTORS */
@@ -93,4 +93,33 @@ body {
 .library-container {
   background-color: var(--color2);
 
+}
+
+.my-books{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  padding: 2rem;
+  gap: 2rem;
+
+}
+
+
+.card{
+  position: relative;
+  font-size: 1.10rem;
+  font-weight: lighter;
+  height: 300px;
+  background-color: var(--color1);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.card p:first-of-type {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
