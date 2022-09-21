@@ -17,14 +17,14 @@ function Book(title, author, pages) {
   add.addEventListener("click", ()=>{
     const book = new Book(`${bookTitle.value}`,`${bookAuthor.value}`,`${bookPages.value}`);
     myLibrary.push(book);
-    updateBook();
+    updateBooks();
     for (let i = 0; i < myLibrary.length; i++) {
       createCard(myLibrary[i]);
     }
     reset();
   });
 
-  function updateBook(){
+  function updateBooks(){
     library.querySelectorAll('div').forEach(n => n.remove());
   }
   
@@ -35,9 +35,14 @@ function Book(title, author, pages) {
     card.className = "card";
     library.appendChild(card); 
     
-    const pTitle = document.createElement('p');
-    const pAuthor = document.createElement('p');
-    const pPages = document.createElement('p');
+    const pTitle = document.createElement("p");
+    const pAuthor = document.createElement("p");
+    const pPages = document.createElement("p");
+    const deleteBtn = document.createElement("i");
+
+    let deleteBtnClasses = ["delete", "fa-solid", "fa-trash"];
+    deleteBtn.classList.add(...deleteBtnClasses);
+    
 
     pTitle.innerText = `${item.title}`
     pAuthor.innerText = `Written by: ${item.author}`;
@@ -46,6 +51,12 @@ function Book(title, author, pages) {
     card.appendChild(pTitle);
     card.appendChild(pAuthor);
     card.appendChild(pPages);
+    card.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener("click", () => {
+      myLibrary.splice(myLibrary.indexOf(item), 1);
+      updateBooks();
+    });
   }
 
   const reset = ()=>{
