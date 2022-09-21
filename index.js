@@ -3,6 +3,7 @@ const bookAuthor = document.getElementById("author");
 const bookPages = document.getElementById("pages");
 const add = document.getElementById("btn-add");
 const library = document.querySelector(".my-books");
+const empty = document.querySelector(".empty-container");
 
 //Empty Library Array
 let myLibrary = [];
@@ -23,12 +24,10 @@ function Book(title, author, pages) {
 
   function updateBooks(){
     library.querySelectorAll('div').forEach(n => n.remove());
-    console.log(library);
     for (let i = 0; i < myLibrary.length; i++) {
-      createCard(myLibrary[i]);}
-    if (myLibrary.length != 0){
-      
+      createCard(myLibrary[i]);
     }
+      checkIfEmpty();
   }
   
 
@@ -68,4 +67,12 @@ function Book(title, author, pages) {
     bookTitle.value = "";
     bookAuthor.value = "";
     bookPages.value = "";
+  }
+
+  const checkIfEmpty = () =>{
+    if (myLibrary.length != 0){
+      empty.classList.add("hide");
+    } else {
+      empty.classList.remove("hide");
+    }
   }
