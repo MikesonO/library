@@ -2,6 +2,7 @@ const bookTitle = document.getElementById("title");
 const bookAuthor = document.getElementById("author");
 const bookPages = document.getElementById("pages");
 const add = document.getElementById("add");
+const library = document.querySelector(".my-books");
 
 let myLibrary = [];
 
@@ -21,8 +22,15 @@ Book.prototype.addBookToLibrary = function(){
   add.addEventListener("click", ()=>{
     const book = new Book(`${bookTitle.value}`,`${bookAuthor.value}`,`${bookPages.value}`);
     book.addBookToLibrary()
+    createCard();
     reset();
   });
+
+  function createCard (){
+    const card = document.createElement("div");
+    card.className = "card";
+    library.appendChild(card); 
+  }
 
   const reset = ()=>{
     bookTitle.value = "";
