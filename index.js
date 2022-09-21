@@ -26,6 +26,9 @@ function Book(title, author, pages) {
     console.log(library);
     for (let i = 0; i < myLibrary.length; i++) {
       createCard(myLibrary[i]);}
+    if (myLibrary.length != 0){
+      
+    }
   }
   
 
