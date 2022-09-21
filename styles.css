@@ -94,7 +94,16 @@ body {
 
 .library-container {
   background-color: var(--color2);
+  position: relative;
+}
 
+.empty-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5rem;
+  letter-spacing: 2px;
 }
 
 .my-books{
