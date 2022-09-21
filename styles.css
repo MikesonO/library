@@ -66,13 +66,15 @@ body {
 .pages-input{
   display:flex;
   flex-direction: column;
+  gap:.75rem;
  
 }
 
 .title-input label,
 .author-input label,
 .pages-input label{
-  margin-left: 5px;;
+  margin-left: 5px;
+  
 }
 
 
@@ -81,9 +83,9 @@ body {
 .pages-input input{
   width:90%;
   font-size: 1.25rem;
-  background-color: var(--color2);
+  background-color: var(--color1);
   color: var(--color4);
-  border: none;
+  border: 3px solid var(--color4);
   border-radius: 5px;
   outline: none;
   padding:5px;
@@ -110,6 +112,7 @@ body {
   font-weight: lighter;
   height: 300px;
   background-color: var(--color1);
+  background-image: linear-gradient(var(--color1), rgb(230, 230, 230));
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.85);
   display: flex;
@@ -117,9 +120,20 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
+  border: 5px solid var(--color3);
+  border-style: outset;
 }
 
 .card p:first-of-type {
   font-size: 1.25rem;
   font-weight: bold;
+  border-bottom: 1px solid var(--color4);
+}
+
+
+
+
+#btn-add{
+  padding: .5rem;
+
 }
