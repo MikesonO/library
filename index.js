@@ -17,13 +17,17 @@ function Book(title, author, pages) {
   add.addEventListener("click", ()=>{
     const book = new Book(`${bookTitle.value}`,`${bookAuthor.value}`,`${bookPages.value}`);
     myLibrary.push(book);
+    updateBook();
     for (let i = 0; i < myLibrary.length; i++) {
-      console.log(myLibrary.length);
       createCard(myLibrary[i]);
     }
     reset();
   });
 
+  function updateBook(){
+    library.querySelectorAll('div').forEach(n => n.remove());
+  }
+  
 
   //Create Card and Displays Book Information
   function createCard (item){
