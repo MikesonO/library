@@ -41,10 +41,17 @@ function Book(title, author, pages) {
     const pAuthor = document.createElement("p");
     const pPages = document.createElement("p");
     const deleteBtn = document.createElement("i");
+    const readCheck = document.createElement("label");
+    const toggleBtn = document.createElement("input");
+  
 
     let deleteBtnClasses = ["delete", "fa-solid", "fa-trash"];
     deleteBtn.classList.add(...deleteBtnClasses);
     
+    readCheck.innerText = "Read:";
+    readCheck.classList.add("checkbox");
+    toggleBtn.setAttribute("type", "checkbox");
+    readCheck.appendChild(toggleBtn);
 
     pTitle.innerText = `${item.title}`
     pAuthor.innerText = `Written by: ${item.author}`;
@@ -54,6 +61,7 @@ function Book(title, author, pages) {
     card.appendChild(pAuthor);
     card.appendChild(pPages);
     card.appendChild(deleteBtn);
+    card.appendChild(readCheck);
 
     deleteBtn.addEventListener("click", () => {
       myLibrary.splice(myLibrary.indexOf(item), 1);
