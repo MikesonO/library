@@ -4,13 +4,15 @@ const bookPages = document.getElementById("pages");
 const add = document.getElementById("btn-add");
 const library = document.querySelector(".my-books");
 const empty = document.querySelector(".empty-container");
+const bookTotal = document.getElementById("total-books");
 const booksRead = document.getElementById("books-read");
 
 //Empty Library Array
 let myLibrary = [];
 
 //Increments based on total of books read
-let bookCount = 0;
+let booksTotalCount= 0;
+let booksReadCount = 0;
 
 //Book Constructor
 function Book(title, author, pages) {
@@ -23,13 +25,14 @@ add.addEventListener("click", () => {
   const book = new Book(`${bookTitle.value}`, `${bookAuthor.value}`, `${bookPages.value}`);
   myLibrary.push(book);
   updateBooks();
-  checkBooks();
+  checkTotalBooksRead();
   reset();
 });
 
 function updateBooks() {
-  bookCount = 0;
-  checkBooks();
+  booksTotalCount = 0;
+  booksReadCount = 0;
+  checkTotalBooksRead();
   library.querySelectorAll('div').forEach(n => n.remove()); //Deletes every book
   for (let i = 0; i < myLibrary.length; i++) { //Updates and Displys books
     createCard(myLibrary[i]);
@@ -78,13 +81,16 @@ function createCard(item) {
 
   toggleBtn.addEventListener("click", () => {
     if (toggleBtn.checked == true) {
-      bookCount++;
-      checkBooks()
+      booksReadCount++;
+      checkTotalBooksRead()
     } else {
-      bookCount--;
-      checkBooks()
+      booksReadCount--;
+      checkTotalBooksRead()
     }
   });
+
+  booksTotalCount ++;
+  checkTotalBooks();
 }
 
 //Resets Input Fields
@@ -92,8 +98,8 @@ const reset = () => {
   bookTitle.value = "";
   bookAuthor.value = "";
   bookPages.value = "";
-  bookCount = 0;
-  booksRead.innerHTML = "Books read: 0";
+  booksReadCount = 0;
+  booksRead.innerHTML = "Books Read: 0";
 }
 
 //Checks Library is empty
@@ -102,8 +108,14 @@ const checkIfEmpty = () => {
     empty.classList.add("hide");
   } else {
     empty.classList.remove("hide");
+    booksTotalCount = 0;
+    checkTotalBooks();
   }
 }
 
 //Checks the Total number of books read
-const checkBooks = () => booksRead.innerHTML = `Books read: ${bookCount}`;
+const checkTotalBooksRead = () => booksRead.innerHTML = `Books Read: ${booksReadCount}`;
+
+const checkTotalBooks = () =>{
+  bookTotal.innerText = `Total Book: ${booksTotalCount}`;
+}

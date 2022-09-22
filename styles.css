@@ -114,7 +114,6 @@ body {
   margin-left: 5px;
 }
 
-
 .title-input input,
 .author-input input,
 .pages-input input{
@@ -127,6 +126,13 @@ body {
   outline: none;
   padding:5px;
   caret-color: var(--color3);
+}
+
+.reading-log{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: .5rem;
 }
 
 .library-container {
