@@ -8,6 +8,7 @@
   --color2: #E7F6F2;
   --color3: #395B64;
   --color4: #2C3333;
+  --color5: #E6E6E6;
 }
 
 /* ELEMENT SELECTORS */
@@ -20,6 +21,43 @@
 input[type=number]::-webkit-inner-spin-button {
   opacity: 1;
 }
+
+
+input[type=checkbox]{
+  position: relative;
+  width: 40px;
+  height: 20px;
+  -webkit-appearance: none;
+  background: var(--color5);
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+  transition: .5s;
+}
+
+input:checked[type=checkbox]{
+  background: var(--color3);
+}
+
+input[type=checkbox]::before{
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  top: 0;
+  left: 0;
+  background-color: var(--color1);
+  scale: 1.1;
+  box-shadow: 0 2px 5px rgba(0,0,0,.2);
+  transition: .5s;
+}
+
+
+input:checked[type=checkbox]::before{
+  left: 20px;
+}
+
 
 body {
   font-family: 'Reem Kufi Fun', sans-serif;
@@ -38,7 +76,7 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 5rem;
   padding: 2rem 1rem;
 }
 
@@ -139,7 +177,7 @@ body {
   font-weight: lighter;
   height: 300px;
   background-color: var(--color1);
-  background-image: linear-gradient(var(--color1), rgb(230, 230, 230));
+  background-image: linear-gradient(var(--color1),var(--color5));
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.85);
   display: flex;
@@ -172,15 +210,26 @@ body {
   scale:1.5;
 }
 
+.checkbox{
+  position: absolute;
+  bottom: 15px;
+  left: 20px;
+  cursor: pointer;
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+}
+
 
 
 #btn-add{
+  margin-top: 2rem;
   font-family: inherit;
   font-size: 1.25rem;
   padding: .5rem;
   color: var(--color3);
   background-color: var(--color2);
-  border: 2px solid var(--color4);
+  border: none;
   border-radius: 5px;
   transition: 0.25s ease;
   cursor: pointer;

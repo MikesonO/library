@@ -23,8 +23,8 @@ function Book(title, author, pages) {
   });
 
   function updateBooks(){
-    library.querySelectorAll('div').forEach(n => n.remove());
-    for (let i = 0; i < myLibrary.length; i++) {
+    library.querySelectorAll('div').forEach(n => n.remove()); //Deletes every book
+    for (let i = 0; i < myLibrary.length; i++) { //Updates and Displys books
       createCard(myLibrary[i]);
     }
       checkIfEmpty();
@@ -63,12 +63,14 @@ function Book(title, author, pages) {
     });
   }
 
+  //Resets Input Fields
   const reset = ()=>{
     bookTitle.value = "";
     bookAuthor.value = "";
     bookPages.value = "";
   }
 
+  //Checks Library is empty
   const checkIfEmpty = () =>{
     if (myLibrary.length != 0){
       empty.classList.add("hide");
