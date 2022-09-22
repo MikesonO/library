@@ -4,11 +4,13 @@ const bookPages = document.getElementById("pages");
 const add = document.getElementById("btn-add");
 const library = document.querySelector(".my-books");
 const empty = document.querySelector(".empty-container");
+const booksRead = document.getElementById("books-read");
 
 //Empty Library Array
 let myLibrary = [];
 
-let count = 0;
+//Increments based on total of books read
+let bookCount = 0;
 
 //Book Constructor
 function Book(title, author, pages) {
@@ -21,10 +23,13 @@ add.addEventListener("click", () => {
   const book = new Book(`${bookTitle.value}`, `${bookAuthor.value}`, `${bookPages.value}`);
   myLibrary.push(book);
   updateBooks();
+  checkBooks();
   reset();
 });
 
 function updateBooks() {
+  bookCount = 0;
+  checkBooks();
   library.querySelectorAll('div').forEach(n => n.remove()); //Deletes every book
   for (let i = 0; i < myLibrary.length; i++) { //Updates and Displys books
     createCard(myLibrary[i]);
@@ -69,14 +74,15 @@ function createCard(item) {
     console.log(myLibrary);
     console.log(myLibrary.length);
     updateBooks();
-    count = 0;
   });
 
-  readCheck.addEventListener("click", () => {
+  toggleBtn.addEventListener("click", () => {
     if (toggleBtn.checked == true) {
-      count++;
+      bookCount++;
+      checkBooks()
     } else {
-      count--;
+      bookCount--;
+      checkBooks()
     }
   });
 }
@@ -86,7 +92,8 @@ const reset = () => {
   bookTitle.value = "";
   bookAuthor.value = "";
   bookPages.value = "";
-  count = 0;
+  bookCount = 0;
+  booksRead.innerHTML = "Books read: 0";
 }
 
 //Checks Library is empty
@@ -97,3 +104,6 @@ const checkIfEmpty = () => {
     empty.classList.remove("hide");
   }
 }
+
+//Checks the Total number of books read
+const checkBooks = () => booksRead.innerHTML = `Books read: ${bookCount}`;
