@@ -20,21 +20,24 @@
       </header>
 
 
-      <div class="user-input">
+      <div class="user-input" id="user-input">
         <!-- GET TITLE NAME -->
         <div class="title-input">
-          <label>Title</label>
-          <input type="text" name="title" id="title">
+          <label>Book Title</label>
+          <input type="text" name="title" id="title" placeholder="Title">
+          <small class="hidden" id="title-check">Title is required </small>
         </div>
         <!-- GET AUTHOR NAME -->
         <div class="author-input">
-          <label>Author</label>
-          <input type="text" name="author" id="author">
+          <label>Book Author</label>
+          <input type="text" name="author" id="author" placeholder="Author">
+          <small class="hidden" id="author-check">Author is required </small>
         </div>
         <!-- GET PAGE NUMBERS -->
         <div class="pages-input">
-          <label>Pages</label>
-          <input type="number" name="pages" id="pages">
+          <label>Book Pages</label>
+          <input type="number" name="pages" id="pages" placeholder="Pages" min="1">
+          <small class="hidden" id="pages-check">Pages is required </small>
         </div>
 
         <button id="btn-add">Add Book</button>
@@ -55,22 +58,11 @@
       </div>
 
       <div class="my-books">
-        <div class="card">
-          <p>Harry Potter</p>
-          <p>Written by: J. K. Rowling</p>
-          <p>Pages: 256</p>
-          <i class="delete fa-solid fa-trash"></i>
-          <label class="checkbox">Read:
-          <input type="checkbox">
-        </label>
       </div>
 
-
     </div>
-
-  </div>
-  <!-- JAVASCRIPT LINK -->
-  <script src="index.js"></script>
+    <!-- JAVASCRIPT LINK -->
+    <script src="index.js"></script>
 </body>
 
 </html>

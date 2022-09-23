@@ -11,7 +11,7 @@ const booksRead = document.getElementById("books-read");
 let myLibrary = [];
 
 //Increments based on total of books read
-let booksTotalCount= 0;
+let booksTotalCount = 0;
 let booksReadCount = 0;
 
 //Book Constructor
@@ -22,6 +22,20 @@ function Book(title, author, pages) {
 }
 //Add Book btn retrives User's Input
 add.addEventListener("click", () => {
+  const formTitle = document.getElementById("title");
+  const formAuthor = document.getElementById("author");
+  const formPages = document.getElementById("pages");
+
+  const formTitleInput = formTitle.value.trim();
+  const formAuthorInput = formAuthor.value.trim();
+  const formPagesInput = formPages.value.trim();
+
+  formValidation(formTitleInput, formAuthorInput, formPagesInput);
+
+  if (formTitleInput === "" || formAuthorInput === "" || formPagesInput === "") {
+    return;
+  }
+
   const book = new Book(`${bookTitle.value}`, `${bookAuthor.value}`, `${bookPages.value}`);
   myLibrary.push(book);
   updateBooks();
@@ -89,7 +103,7 @@ function createCard(item) {
     }
   });
 
-  booksTotalCount ++;
+  booksTotalCount++;
   checkTotalBooks();
 }
 
@@ -116,6 +130,68 @@ const checkIfEmpty = () => {
 //Checks the Total number of books read
 const checkTotalBooksRead = () => booksRead.innerHTML = `Books Read: ${booksReadCount}`;
 
-const checkTotalBooks = () =>{
-  bookTotal.innerText = `Total Book: ${booksTotalCount}`;
+const checkTotalBooks = () => {
+  bookTotal.innerText = `Total Books: ${booksTotalCount}`;
 }
+
+
+
+// const checkTitle = (input, error) => {
+//     if(input === ""){
+//     error.classList.remove("hidden");
+//     add.disabled = true;
+//   } else {
+//     error.classList.add("hidden");
+//     add.disabled = false;
+//   }
+// }
+
+function formValidation(titleInput, authorInput, pagesInput) {
+  const titleError = document.getElementById("title-check");
+  const authorError = document.getElementById("author-check");
+  const pagesError = document.getElementById("pages-check");
+
+  if (titleInput === "") {
+    titleError.classList.remove("hidden");
+  } else {
+    titleError.classList.add("hidden");
+  }
+
+  if (authorInput === "") {
+    authorError.classList.remove("hidden");
+  } else {
+    authorError.classList.add("hidden");
+  }
+
+  if (pagesInput == 0) {
+    pagesError.classList.remove("hidden");
+  } else {
+    pagesError.classList.add("hidden");
+  }
+}
+
+
+//Event listener for Page Input
+document.getElementById("pages").addEventListener("keypress", function (evt) {
+
+  //Prvents these keys from being pressed
+  const invalidChars = [
+    "-",
+    "+",
+    "e",
+    "."
+  ];
+
+  if (invalidChars.includes(evt.key)) {
+    evt.preventDefault();
+  }
+
+  //Limits the characters the user can Input to 7 digits.
+  const max_chars = 6;
+  if (this.value.length > max_chars) {
+    this.value = this.value.substr(0, max_chars);
+  }
+
+  //Prevents leading zeroes
+  this.value = this.value.replace(/^0+/, '');
+});
