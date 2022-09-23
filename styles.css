@@ -100,6 +100,7 @@ small {
 .title {
   font-size: 1.5rem;
   letter-spacing: 6.5px;
+  text-align: center;
 }
 
 .user-input {
@@ -176,6 +177,7 @@ small {
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
   letter-spacing: 2px;
+  text-align: center;
 }
 
 .hide {
