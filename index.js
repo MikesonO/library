@@ -15,10 +15,12 @@ let booksTotalCount = 0;
 let booksReadCount = 0;
 
 //Book Constructor
-function Book(title, author, pages) {
+class Book {
+  constructor(title, author, pages){
   this.title = title;
   this.author = author;
   this.pages = pages;
+  }
 }
 //Add Book btn retrives User's Input
 add.addEventListener("click", () => {
@@ -133,18 +135,6 @@ const checkTotalBooksRead = () => booksRead.innerHTML = `Books Read: ${booksRead
 const checkTotalBooks = () => {
   bookTotal.innerText = `Total Books: ${booksTotalCount}`;
 }
-
-
-
-// const checkTitle = (input, error) => {
-//     if(input === ""){
-//     error.classList.remove("hidden");
-//     add.disabled = true;
-//   } else {
-//     error.classList.add("hidden");
-//     add.disabled = false;
-//   }
-// }
 
 function formValidation(titleInput, authorInput, pagesInput) {
   const titleError = document.getElementById("title-check");
